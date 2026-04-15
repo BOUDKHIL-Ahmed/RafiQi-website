@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="htmlTag">
+<html lang="en" dir="ltr" id="htmlTag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,6 @@
 
         body.dark-mode { background: var(--bg-dark); color: var(--text-dark); }
 
-                
         .top-controls {
             position: absolute; 
             top: 0; 
@@ -42,7 +41,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        
         [dir="ltr"] .top-controls {
             justify-content: flex-end;
         }
@@ -64,10 +62,9 @@
 
         .control-btn:hover { transform: scale(1.05); }
 
-        /* الهيدر */
         header {
             position: relative; 
-            padding: 120px 20px 100px; /* زيادة Padding العلوي حتى لا تختفي العناوين خلف الأزرار */
+            padding: 120px 20px 100px; 
             text-align: center;
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             animation: gradientShift 8s ease infinite alternate;
@@ -99,7 +96,7 @@
         section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; text-align: center; }
         .section-title { font-size: 2.2rem; margin-bottom: 30px; color: var(--primary); }
 
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
         .feature-card {
             background: var(--card-light); padding: 30px; border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s;
@@ -124,20 +121,21 @@
             border-radius: 40px 40px 0 0; 
         }
         .footer-content { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        .email-link { 
+        .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 10px; }
+        .email-link, .social-link { 
             display: inline-flex; 
             align-items: center; 
             gap: 10px; 
             color: var(--accent); 
             text-decoration: none; 
-            font-size: 1.3rem; 
+            font-size: 1.1rem; 
             font-weight: 700; 
-            padding: 10px 20px;
+            padding: 8px 18px;
             border: 2px dashed rgba(255, 215, 0, 0.3);
             border-radius: 15px;
             transition: 0.3s; 
         }
-        .email-link:hover { color: white; border-color: white; transform: scale(1.05); }
+        .email-link:hover, .social-link:hover { color: white; border-color: white; transform: scale(1.05); }
 
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -154,22 +152,22 @@
 
     <div class="top-controls">
         <button id="modeToggle" class="control-btn">🌙</button>
-        <button id="langToggle" class="control-btn">English</button>
+        <button id="langToggle" class="control-btn">العربية</button>
     </div>
 
     <header id="header">
         <h1 id="mainTitle">RafiQi</h1>
-        <p id="headerSubtext">تطبيق تعليمي تفاعلي لتعليم الدين الإسلامي للأطفال بطريقة ممتعة وآمنة</p>
-        <button class="cta-button" id="startBtn">ابدأ الرحلة الآن</button>
+        <p id="headerSubtext">An interactive app to teach Islam to children in a fun and safe environment</p>
+        <button class="cta-button" id="startBtn">Start the Journey Now</button>
     </header>
 
     <section>
-        <h2 class="section-title" id="featuresTitle">مميزات رفيقي</h2>
+        <h2 class="section-title" id="featuresTitle">RafiQi Features</h2>
         <div class="features-grid" id="featuresGrid"></div>
     </section>
 
     <section style="background: rgba(56, 161, 105, 0.05); border-radius: 40px;">
-        <h2 class="section-title" id="faqTitle">الأسئلة الشائعة</h2>
+        <h2 class="section-title" id="faqTitle">Frequently Asked Questions</h2>
         <div class="faq-container" id="faqContainer"></div>
     </section>
 
@@ -177,24 +175,29 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div style="font-size: 3.5rem; margin-bottom: 15px;">🚀</div>
-            <h2 id="modalT">قريباً إن شاء الله!</h2>
-            <p id="modalB">نحن نضع اللمسات الأخيرة على تطبيق رفيقي. انتظرونا قريباً!</p>
-            <button class="cta-button" style="width: 100%; margin-top: 15px;" onclick="closeModal()" id="modalBtn">سأكون بانتظاركم!</button>
+            <h2 id="modalT">Coming Soon!</h2>
+            <p id="modalB">We are putting the final touches on RafiQi. Stay tuned!</p>
+            <button class="cta-button" style="width: 100%; margin-top: 15px;" onclick="closeModal()" id="modalBtn">I'll be waiting!</button>
         </div>
     </div>
 
     <footer>
         <div class="footer-content">
-            <h3 id="contactTitle"> اتواصل معنا عبر البريد الالكتروني </h3>
-            <a href="mailto:Rafiqi@gmail.com" class="email-link">📧 RafiQi@gmail.com</a>
-            <p style="margin-top: 20px; opacity: 0.7;">© 2026 RafiQi - <span id="footerText">جميع الحقوق محفوظة</span></p>
+            <h3 id="contactTitle">Contact Us</h3>
+            <div class="contact-links">
+                <a href="mailto:Rafiqi@gmail.com" class="email-link"> RafiQi@gmail.com</a>
+                <a href="#" target="_blank" class="social-link"> Facebook RafiQi</a>
+                <a href="#" target="_blank" class="social-link"> Instagram RafiQi</a>
+            </div>
+            <p style="margin-top: 20px; opacity: 0.7;">© 2026 RafiQi - <span id="footerText">All Rights Reserved</span></p>
         </div>
     </footer>
 
     <script>
         const langToggle = document.getElementById('langToggle');
         const htmlTag = document.getElementById('htmlTag');
-        let currentLang = 'ar';
+        // تم تغيير اللغة الافتراضية إلى الإنجليزية
+        let currentLang = 'en';
 
         const content = {
             ar: {
@@ -202,12 +205,13 @@
                 btn: "ابدأ الرحلة الآن",
                 fTitle: "مميزات رفيقي",
                 faqTitle: "الأسئلة الشائعة",
-                contactT:"تواصل معنا عبر البريد الالكتروني",
+                contactT:"تواصل معنا",
                 modalT: "قريباً إن شاء الله!",
                 modalB: "نحن نضع اللمسات الأخيرة على تطبيق رفيقي. انتظرونا قريباً!",
                 modalBtn: "سأكون بانتظاركم!",
                 footer: "جميع الحقوق محفوظة",
                 features: [
+                    {icon: "📚", t: "دروس (Course)", d: "مناهج تعليمية شاملة ومبسطة."},
                     {icon: "🎮", t: "تعلم باللعب", d: "ألعاب تغرس القيم والأخلاق."},
                     {icon: "🏆", t: "مسابقات ذكية", d: "اختبارات تقيس مستوى طفلك."},
                     {icon: "♿", t: "دعم الجميع", d: "قريباً: ميزات مخصصة لذوي الاحتياجات الخاصة."}
@@ -224,12 +228,13 @@
                 btn: "Start the Journey Now",
                 fTitle: "RafiQi Features",
                 faqTitle: "Frequently Asked Questions",
-                contactT: "Contact us via email",
+                contactT: "Contact Us",
                 modalT: "Coming Soon!",
                 modalB: "We are putting the final touches on RafiQi. Stay tuned!",
                 modalBtn: "I'll be waiting!",
                 footer: "All Rights Reserved",
                 features: [
+                    {icon: "📚", t: "Courses", d: "Comprehensive and simplified educational curricula."},
                     {icon: "🎮", t: "Learn by Play", d: "Games that instill values and morals."},
                     {icon: "🏆", t: "Smart Quizzes", d: "Interactive tests to track progress."},
                     {icon: "♿", t: "Inclusive Learning", d: "Future: Dedicated features for people with special needs."}
